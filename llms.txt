@@ -6,20 +6,24 @@
 
 ## أقسام الموقع
 
-- [الصفحة الرئيسية](https://gadamohamed.vercel.app//): تعريف بغادة محمد وخدماتها الأساسية
-- [عني](https://gadamohamed.vercel.app//#about): نبذة عن غادة محمد وأسلوب عملها
-- [الخدمات](https://gadamohamed.vercel.app//#services): مونتاج فيديو، موشن جرافيك، فيديوهات بالذكاء الاصطناعي، إعلانات تجارية، ريلز وسوشيال ميديا، فيديوهات تعريفية للشركات
-- [الأعمال](https://gadamohamed.vercel.app//#work): نماذج موشن جرافيك ومونتاج وفيديوهات ذكاء اصطناعي
-- [لماذا أنا](https://gadamohamed.vercel.app//#why): نقاط التميز وطريقة التعامل
-- [العملاء](https://gadamohamed.vercel.app//#clients): علامات تجارية وشركات تم العمل معها في مصر ودول الخليج
-- [من أعمل معه](https://gadamohamed.vercel.app//#audience): الشركات، التسويق، المطاعم، العيادات، المتاجر الإلكترونية، العقارات، التعليم، صناع المحتوى
-- [خطوات العمل](https://gadamohamed.vercel.app//#process): من فهم الأهداف حتى التسليم
-- [تواصل](https://gadamohamed.vercel.app//#contact): بدء مشروع عبر واتساب
+- [الصفحة الرئيسية](https://gadamohamed.vercel.app/): تعريف بغادة محمد وخدماتها الأساسية
+- [عني](https://gadamohamed.vercel.app/#about): نبذة عن غادة محمد وأسلوب عملها
+- [الخدمات](https://gadamohamed.vercel.app/#services): مونتاج فيديو، موشن جرافيك، فيديوهات بالذكاء الاصطناعي، إعلانات تجارية، ريلز وسوشيال ميديا، فيديوهات تعريفية للشركات
+- [الأعمال](https://gadamohamed.vercel.app/#work): نماذج موشن جرافيك ومونتاج وفيديوهات ذكاء اصطناعي
+- [لماذا أنا](https://gadamohamed.vercel.app/#why): نقاط التميز وطريقة التعامل
+- [العملاء](https://gadamohamed.vercel.app/#clients): علامات تجارية وشركات تم العمل معها في مصر ودول الخليج
+- [من أعمل معه](https://gadamohamed.vercel.app/#audience): الشركات، التسويق، المطاعم، العيادات، المتاجر الإلكترونية، العقارات، التعليم، صناع المحتوى
+- [خطوات العمل](https://gadamohamed.vercel.app/#process): من فهم الأهداف حتى التسليم
+- [تواصل](https://gadamohamed.vercel.app/#contact): بدء مشروع عبر واتساب
+
+## كلمات مفتاحية
+
+مصممة موشن جرافيك في مصر، مونتير فيديو، مونتاج فيديو احترافي، مونتاج ريلز وإعلانات، إنتاج فيديو بالذكاء الاصطناعي، إعلانات بالذكاء الاصطناعي، فيديو تعريفي للشركات، فيديو انيميشن، إعلانات المنتجات، فيديوهات سوشيال ميديا، موشن جرافيك للعلامات التجارية في مصر ودول الخليج. Motion graphics designer in Egypt, video editor, AI video production, explainer videos, Reels editing.
 
 ## الملفات التقنية
 
-- [Sitemap](https://gadamohamed.vercel.app//sitemap.xml): خريطة الموقع
-- [Robots](https://gadamohamed.vercel.app//robots.txt): سياسة الزحف
+- [Sitemap](https://gadamohamed.vercel.app/sitemap.xml): خريطة الموقع
+- [Robots](https://gadamohamed.vercel.app/robots.txt): سياسة الزحف
 
 ## الملفات الشخصية والأعمال
 
@@ -29,5 +33,5 @@
 
 ## Optional
 
-- [الصورة الشخصية](https://gadamohamed.vercel.app//ghada-portrait.jpeg): صورة غادة محمد
-- [شعار Aurex Studio](https://gadamohamed.vercel.app//aurex-logo.jpeg): الشعار
+- [الصورة الشخصية](https://gadamohamed.vercel.app/ghada-mohamed-motion-graphics-designer.webp): غادة محمد مصممة موشن جرافيك ومونتير فيديو
+- [شعار Aurex Studio](https://gadamohamed.vercel.app/aurex-logo.jpeg): الشعار
