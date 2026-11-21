@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0A0A0A">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="author" content="غادة محمد">
-  <link rel="canonical" href="https://gadamohamed.vercel.app//">
+  <link rel="canonical" href="https://ghada-mohamed.vercel.app/">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs">
 
   <!-- Open Graph / Twitter -->
@@ -17,13 +17,13 @@
   <meta property="og:site_name" content="Aurex Studio">
   <meta property="og:title" content="غادة محمد | موشن جرافيك ومونتاج فيديو وإنتاج بالذكاء الاصطناعي">
   <meta property="og:description" content="أحوّل فكرتك إلى قصة تُشاهَد: موشن جرافيك، مونتاج فيديو، وإنتاج محتوى بالذكاء الاصطناعي للشركات والعلامات التجارية.">
-  <meta property="og:url" content="https://gadamohamed.vercel.app//">
-  <meta property="og:image" content="https://gadamohamed.vercel.app//ghada-portrait.jpeg">
+  <meta property="og:url" content="https://ghada-mohamed.vercel.app/">
+  <meta property="og:image" content="https://ghada-mohamed.vercel.app/ghada-portrait.jpeg">
   <meta property="og:image:alt" content="غادة محمد - مصممة موشن جرافيك ومونتير فيديو">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="غادة محمد | Aurex Studio">
   <meta name="twitter:description" content="موشن جرافيك، مونتاج فيديو، وإنتاج محتوى بالذكاء الاصطناعي.">
-  <meta name="twitter:image" content="https://gadamohamed.vercel.app//ghada-portrait.jpeg">
+  <meta name="twitter:image" content="https://ghada-mohamed.vercel.app/ghada-portrait.jpeg">
 
   <!-- Performance: LCP image + non-blocking fonts -->
   <link rel="preload" as="image" href="ghada-portrait.jpeg" fetchpriority="high">
@@ -40,21 +40,21 @@
     "@graph":[
       {
         "@type":"WebSite",
-        "@id":"https://gadamohamed.vercel.app//#website",
-        "url":"https://gadamohamed.vercel.app//",
+        "@id":"https://ghada-mohamed.vercel.app/#website",
+        "url":"https://ghada-mohamed.vercel.app/",
         "name":"غادة محمد | Aurex Studio",
         "inLanguage":"ar",
-        "publisher":{"@id":"https://gadamohamed.vercel.app//#studio"}
+        "publisher":{"@id":"https://ghada-mohamed.vercel.app/#studio"}
       },
       {
         "@type":"Person",
-        "@id":"https://gadamohamed.vercel.app//#person",
+        "@id":"https://ghada-mohamed.vercel.app/#person",
         "name":"غادة محمد",
         "alternateName":"Ghada Mohamed",
         "jobTitle":"مصممة موشن جرافيك ومونتير فيديو ومتخصصة في إنتاج المحتوى بالذكاء الاصطناعي",
-        "url":"https://gadamohamed.vercel.app//",
-        "image":"https://gadamohamed.vercel.app//ghada-portrait.jpeg",
-        "worksFor":{"@id":"https://gadamohamed.vercel.app//#studio"},
+        "url":"https://ghada-mohamed.vercel.app/",
+        "image":"https://ghada-mohamed.vercel.app/ghada-portrait.jpeg",
+        "worksFor":{"@id":"https://ghada-mohamed.vercel.app/#studio"},
         "knowsAbout":["موشن جرافيك","مونتاج فيديو","فيديوهات الذكاء الاصطناعي","إعلانات تجارية","ريلز وسوشيال ميديا","فيديوهات تعريفية للشركات","Motion Graphics","Video Editing","AI Video Production"],
         "sameAs":[
           "https://www.instagram.com/dod.odesign350/",
@@ -64,13 +64,13 @@
       },
       {
         "@type":"ProfessionalService",
-        "@id":"https://gadamohamed.vercel.app//#studio",
+        "@id":"https://ghada-mohamed.vercel.app/#studio",
         "name":"Aurex Studio",
-        "url":"https://gadamohamed.vercel.app//",
-        "logo":"https://gadamohamed.vercel.app//aurex-logo.jpeg",
-        "image":"https://gadamohamed.vercel.app//ghada-portrait.jpeg",
+        "url":"https://ghada-mohamed.vercel.app/",
+        "logo":"https://ghada-mohamed.vercel.app/aurex-logo.jpeg",
+        "image":"https://ghada-mohamed.vercel.app/ghada-portrait.jpeg",
         "description":"استوديو موشن جرافيك ومونتاج فيديو وإنتاج محتوى بالذكاء الاصطناعي للشركات والعلامات التجارية في مصر ودول الخليج.",
-        "founder":{"@id":"https://gadamohamed.vercel.app//#person"},
+        "founder":{"@id":"https://ghada-mohamed.vercel.app/#person"},
         "areaServed":[
           {"@type":"Country","name":"مصر"},
           {"@type":"Country","name":"السعودية"},
@@ -1043,8 +1043,8 @@
       modalFrame.innerHTML = "";
       const iframe = document.createElement("iframe");
       iframe.src = source;
-      iframe.allow = "autoplay; fullscreen; picture-in-picture";
-      iframe.allowFullscreen = true;
+      iframe.allow = "autoplay; fullscreen; picture-in-picture; encrypted-media";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
       iframe.title = project.title || "Video";
       modalFrame.appendChild(iframe);
       modalTitle.textContent = project.title || "";
@@ -1288,17 +1288,18 @@
     const navLinks = [...document.querySelectorAll(".nav-links a")];
     const backTop = document.querySelector(".back-top");
 
-    // نخزن مواضع الأقسام مرة واحدة بدل قراءة offsetTop في كل scroll (يمنع forced reflow)
-    let sectionOffsets = [];
-    function measureSections(){
-      sectionOffsets = sections.map(section=>({id:section.id,top:section.offsetTop}));
+    // تحديد القسم النشط في القائمة عبر IntersectionObserver بدل قراءة offsetTop (يمنع forced reflow تمامًا)
+    function setActiveNav(id){
+      navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href") === `#${id}`));
     }
+    const navObserver = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{ if(entry.isIntersecting) setActiveNav(entry.target.id); });
+    },{rootMargin:"-130px 0px -60% 0px",threshold:0});
+    sections.forEach(section=>navObserver.observe(section));
+    setActiveNav("home");
+
     let scrollTicking = false;
     function updateScrollState(){
-      const y = window.scrollY + 130;
-      let current = "home";
-      sectionOffsets.forEach(section=>{ if(section.top <= y) current = section.id; });
-      navLinks.forEach(link=>link.classList.toggle("active",link.getAttribute("href") === `#${current}`));
       backTop.classList.toggle("show",window.scrollY > 650);
       scrollTicking = false;
     }
@@ -1307,7 +1308,6 @@
       scrollTicking = true;
       requestAnimationFrame(updateScrollState);
     },{passive:true});
-    window.addEventListener("resize",()=>{ measureSections(); updateScrollState(); },{passive:true});
     backTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
 
     document.getElementById("whatsappBtn").addEventListener("click",()=>{
@@ -1414,14 +1414,13 @@
     renderPayments(fallbackPayments);
     initializeCounters();
     document.getElementById("year").textContent = new Date().getFullYear();
-    measureSections();
     updateScrollState();
 
     // كل ما ليس ضروريًا للعرض الأول يبدأ بعد load وفي وقت الخمول
     function afterLoad(){
       const idle = window.requestIdleCallback || (cb => setTimeout(cb,200));
       idle(()=>{ startButterflyFlight(); },{timeout:1500});
-      idle(()=>{ loadDynamicContent().then(()=>{ measureSections(); updateScrollState(); }); },{timeout:2000});
+      idle(()=>{ loadDynamicContent(); },{timeout:2000});
     }
     if(document.readyState === "complete") afterLoad();
     else window.addEventListener("load",afterLoad,{once:true});
