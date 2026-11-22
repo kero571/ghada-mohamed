@@ -23,4 +23,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://gadamohamed.vercel.app/sitemap.xml
+Sitemap: https://gada-mohamed.vercel.app/sitemap.xml
