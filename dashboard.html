@@ -384,8 +384,11 @@
       }
       .an-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 13px;
+      }
+      .an-three {
+        grid-template-columns: repeat(3, 1fr);
       }
       .an-lists {
         display: grid;
@@ -439,9 +442,9 @@
         color: var(--muted);
         font-size: 0.82rem;
       }
-      @media (max-width: 1050px) {
+      @media (max-width: 650px) {
         .an-grid {
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: 1fr;
         }
       }
       @media (max-width: 650px) {
@@ -1329,12 +1332,10 @@
         file = await compressImage(file, maxSize);
         const ext = (file.name.split(".").pop() || "png").toLowerCase(),
           path = `${folder}/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
-        const up = await db.storage
-          .from("site-assets")
-          .upload(path, file, {
-            cacheControl: "31536000",
-            contentType: file.type,
-          });
+        const up = await db.storage.from("site-assets").upload(path, file, {
+          cacheControl: "31536000",
+          contentType: file.type,
+        });
         if (up.error) throw up.error;
         return db.storage.from("site-assets").getPublicUrl(path).data.publicUrl;
       }
@@ -1544,56 +1545,25 @@
       }
       function renderAnalyticsData(data, meta) {
         const t = anMetric(data, "Traffic")[0] || {};
-        const sessions = anNum(anPick(t, "totalSessionCount")),
-          users = anNum(anPick(t, "distinctUserCount", "distantUserCount")),
-          pps = anNum(
-            anPick(t, "pagesPerSessionPercentage", "pagesPerSession"),
-          );
         const eng = anMetric(data, "EngagementTime")[0] || {};
+        const sessions = anNum(anPick(t, "totalSessionCount")),
+          users = anNum(anPick(t, "distinctUserCount"));
         const active = anNum(anPick(eng, "activeTime")),
           total = anNum(anPick(eng, "totalTime"));
-        const scroll = anNum(
-          anPick(anMetric(data, "ScrollDepth")[0], "averageScrollDepth"),
-        );
-        const pctOf = (n) =>
-          anNum(anPick(anMetric(data, n)[0], "sessionsWithMetricPercentage"));
         const cards = [
-          ["الجلسات", anFmt(sessions), "إجمالي الزيارات"],
-          ["الزوار", anFmt(users), "زوار مختلفون"],
-          ["صفحات / جلسة", anFmt(pps), "متوسط التصفح"],
+          ["الجلسات", anFmt(sessions), "عدد الزيارات"],
+          ["الزوار", anFmt(users), "عدد الأشخاص"],
           [
             "وقت التفاعل",
             anTime(active !== null ? active : total),
-            "متوسط الجلسة",
+            "متوسط وقت البقاء",
           ],
-          ["عمق التمرير", anPct(scroll), "متوسط التمرير"],
-          [
-            "نقرات ميتة",
-            anPct(pctOf("DeadClickCount")),
-            "جلسات فيها نقرات بلا استجابة",
-          ],
-          ["نقرات غضب", anPct(pctOf("RageClickCount")), "جلسات فيها نقر متكرر"],
-          ["أخطاء سكربت", anPct(pctOf("ScriptErrorCount")), "جلسات فيها أخطاء"],
         ];
-        const lists = [
-          ["أكثر الصفحات زيارة", "PopularPages"],
-          ["الأجهزة", "Device"],
-          ["الدول", "Country"],
-          ["مصادر الزيارة", "ReferrerUrl"],
-          ["المتصفحات", "Browser"],
-          ["أنظمة التشغيل", "OS"],
-        ]
-          .map(([title, key]) => {
-            const rows = anList(data, key);
-            return rows.length
-              ? `<div class="an-list"><h3>${title}</h3>${rows.map((r) => `<div class="an-row"><span title="${esc(r.label)}">${esc(r.label)}</span><b>${anFmt(r.count)}</b></div>`).join("")}</div>`
-              : "";
-          })
-          .join("");
-        const hasAny = cards.some((c) => c[1] !== "—") || lists;
-        $("anBody").innerHTML = hasAny
-          ? `<div class="an-grid">${cards.map((c) => `<div class="metric an-metric"><strong>${c[1]}</strong><span>${c[0]}</span><small>${c[2]}</small></div>`).join("")}</div>${lists ? `<div class="an-lists">${lists}</div>` : ""}`
-          : '<div class="an-msg">لا توجد بيانات كافية بعد. قد تحتاج Clarity لبعض الوقت بعد أول زيارات للموقع.</div>';
+        $("anBody").innerHTML =
+          `<div class="an-grid an-three">${cards.map((c) => `<div class="metric an-metric"><strong>${c[1]}</strong><span>${c[0]}</span><small>${c[2]}</small></div>`).join("")}</div>` +
+          (sessions === 0
+            ? '<div class="an-msg">لا توجد زيارات مسجلة في هذه الفترة بعد.</div>'
+            : "");
         const when =
           meta && meta.fetchedAt
             ? new Date(meta.fetchedAt).toLocaleString("ar-EG")
